@@ -2,5 +2,5 @@ projectKey=demojenkins
 serverUrl=http://localhost:9000
 serverVersion=6.7.4.38452
 dashboardUrl=http://localhost:9000/dashboard/index/demojenkins
-ceTaskId=AWxBFbNC3y1Tkscv9Kvv
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWxBFbNC3y1Tkscv9Kvv
+ceTaskId=AXCEGQDbQhVGkxGVWjAN
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXCEGQDbQhVGkxGVWjAN

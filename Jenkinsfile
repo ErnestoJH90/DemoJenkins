@@ -1,10 +1,11 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        sh 'echo \' building\''
+   agent any
+
+   stages {
+      stage('Verify Branch') {
+         steps {
+            echo $GIT_BRANCH
+         }
       }
-    }
-  }
+   }
 }
