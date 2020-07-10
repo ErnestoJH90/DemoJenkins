@@ -10,6 +10,11 @@ pipeline {
       stage('Test') {
          steps {
             echo 'How are you World'
+            stage('SonarQube') {
+         steps {
+           echo 'scanner'
+             }
+           }
          }
       }
       stage('Deploy') {
@@ -22,10 +27,5 @@ pipeline {
             powershell label: '', script: 'Write-Output "Hello PowerShell!"'
          }
       }
-      stage('SonarQube') {
-         steps {
-           echo "$sonar_scanner.bat"
-         }
-      } 
    }
 }
