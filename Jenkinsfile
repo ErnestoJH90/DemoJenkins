@@ -25,7 +25,7 @@ pipeline {
       stage('SonarQube') {
          steps {
            echo "$sonar_scanner"
-           must be unique in a given SonarQube instance
+           #must be unique in a given SonarQube instance
            sonar.projectKey=demoBB
            #This is the name and version displayed in the SonarQube UI.Was mandatory prior to SonarQube
            sonar.projectName=demoBB
