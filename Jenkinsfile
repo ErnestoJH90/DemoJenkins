@@ -10,11 +10,10 @@ pipeline {
       stage('Test') {
          steps {
             echo 'How are you World'
-            stage('SonarQube') {
-         steps {
-           echo 'scanner'
-             }
-           }
+
+      stage('SonarQube') 
+         steps 
+            echo 'scanner'
          }
       }
       stage('Deploy') {
