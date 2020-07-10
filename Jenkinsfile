@@ -1,31 +1,46 @@
 pipeline {
-   agent any
+  agent {
+    dockerfile true
+  }
 
-   stages {
-     stage('Verify Branch') {
-         steps {
-            echo "$GIT_BRANCH"
-         }
+  stages {
+    stage('Initialize') {
+      steps {
+        sh 'npm install'
       }
-      stage('Test') {
-         steps {
-            echo 'How are you World'
-
-      stage('SonarQube') 
-         steps{
-            echo 'scanner'
+    }
+    stage('Unit Test') {
+      steps {
+        sh 'gulp test'
+      }
+    }
+    stage('Convergence Testing') {
+      steps {
+        parallel (
+          firefox: {
+            echo "Firefox Testing"
+          },
+          Chrome: {
+            echo "Chrome Testing"
+          },
+          IE: {
+            echo "IE Testing"
+          },
+          Mobile: {
+            echo "Mobile Testing"
           }
-        }
+        )
       }
-      stage('Deploy') {
-         steps {
-            echo 'GoodBye World'
-         }
+    }
+    stage('Build') {
+      steps {
+        sh 'gulp package-app'
       }
-       stage('PowerShell') {
-         steps {
-            powershell label: '', script: 'Write-Output "Hello PowerShell!"'
-         }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deploying...'
       }
-   }
+    }
+  }
 }
