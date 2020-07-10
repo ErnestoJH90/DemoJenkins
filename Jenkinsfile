@@ -25,10 +25,6 @@ pipeline {
       stage('SonarQube') {
          steps {
            echo "$sonar_scanner"
-           sonar.projectKey=demojenkins
-           sonar.projectName=demojenkins
-           sonar.projectVersion=1.0
-           sonar.sources=./
          }
       } 
    }
