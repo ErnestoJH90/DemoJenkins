@@ -12,9 +12,10 @@ pipeline {
             echo 'How are you World'
 
       stage('SonarQube') 
-         steps 
+         steps{
             echo 'scanner'
-         }
+          }
+        }
       }
       stage('Deploy') {
          steps {
