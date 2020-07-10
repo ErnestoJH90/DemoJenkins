@@ -1,46 +1,11 @@
 pipeline {
-  agent {
-    dockerfile true
-  }
+   agent any
 
-  stages {
-    stage('Initialize') {
-      steps {
-        sh 'npm install'
+   stages {
+      stage('Verify Branch') {
+         steps {
+            echo "$GIT_BRANCH"
+         }
       }
-    }
-    stage('Unit Test') {
-      steps {
-        sh 'gulp test'
-      }
-    }
-    stage('Convergence Testing') {
-      steps {
-        parallel (
-          firefox: {
-            echo "Firefox Testing"
-          },
-          Chrome: {
-            echo "Chrome Testing"
-          },
-          IE: {
-            echo "IE Testing"
-          },
-          Mobile: {
-            echo "Mobile Testing"
-          }
-        )
-      }
-    }
-    stage('Build') {
-      steps {
-        sh 'gulp package-app'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        echo 'Deploying...'
-      }
-    }
-  }
+   }
 }
