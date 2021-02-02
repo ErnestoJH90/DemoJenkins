@@ -9,10 +9,10 @@ pipeline {
       }
       stage('check ip'){
          steps{
-            bat 'ipconfig'
+            sh 'ip addr show'
          }
       }
-      stage('Date'){
+      stage('date'){
          script{
             Date date = new Date()
             env.NAME = date.format("dd-mm-yyyy")
