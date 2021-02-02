@@ -12,24 +12,27 @@ pipeline {
             sh 'ip addr show'
          }
       }
-      stage('fecha'){
-         steps{
-            script{
-               Date date = new Date()
-               env.NAME = date.format("dd-MM-yyyy")
+      stage('Date'){
+            steps{
+                script{
+                    Date date = new Date()
+                    env.NAME = date.format("dd-MM-yy")
+                }
             }
-         }
-      }
+            post{
+                always{
+                    script{
+                        currentBuild.displayName = "node-app-${NAME}"
+                    }
+                }
+            }
+        }
       stage('build') {
             steps {
-                    withMaven(maven:'Maven 3.6.3') {
-                        sh 'mvn clean package '
+                   Maven(maven:'Maven 3.6.3') {
+                  sh 'mvn clean package '
             }
          }
       }
    }
 }
-
-
-
-
