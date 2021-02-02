@@ -22,7 +22,7 @@ pipeline {
             post{
                 always{
                     script{
-                        currentBuild.displayName = "node-app-${NAME}"
+                        currentBuild.displayName = "CI/CD-Kt-${NAME}"
                     }
                 }
             }
