@@ -1,5 +1,8 @@
 pipeline {
    agent any
+   tools{
+      maven 'maven-tool'
+   }
 
    stages {
       stage('Verify Branch') {
@@ -27,10 +30,8 @@ pipeline {
                 }
             }
         }
-      stage('build') {
-            steps {
-               sh 'mvn clean package '
-         }
-       }
-   }
-}
+        stage('Build') {
+             sh "mvn -f ${PROJECT_ROOT} clean install"
+            }
+        }
+    }
