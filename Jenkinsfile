@@ -29,10 +29,8 @@ pipeline {
         }
       stage('build') {
             steps {
-                   Maven(maven:'Maven 3.6.3') {
-                  sh 'mvn clean package '
-            }
+               sh 'mvn clean package '
          }
-      }
+       }
    }
 }
