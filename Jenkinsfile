@@ -12,7 +12,7 @@ pipeline {
             sh 'ip addr show'
          }
       }
-      stage('prepare'){
+      stage('fecha'){
          steps{
             script{
                Date date = new Date()
