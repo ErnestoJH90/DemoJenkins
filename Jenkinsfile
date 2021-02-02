@@ -7,12 +7,12 @@ pipeline {
             echo "$GIT_BRANCH"
          }
       }
-      stage('check ip'){
+      stage('check ip') {
          steps{
             sh 'ip addr show'
          }
       }
-      stage('date'){
+      stage('date') {
          script{
             Date date = new Date()
             env.NAME = date.format("dd-mm-yyyy")
