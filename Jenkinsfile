@@ -1,6 +1,6 @@
 pipeline {
    agent any
-   
+
    stages {
       stage('Verify Branch') {
          steps {
@@ -27,8 +27,5 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
-             sh "mvn -f ${PROJECT_ROOT} clean install"
-            }
-        }
+      }
     }
