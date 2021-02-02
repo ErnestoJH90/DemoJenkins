@@ -19,6 +19,7 @@ pipeline {
                env.NAME = date.format("dd-MM-yyyy")
             }
          }
+      }
       stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('My SonarQube Server') {
@@ -31,7 +32,6 @@ pipeline {
          }
       }
    }
-}
 
 
 
