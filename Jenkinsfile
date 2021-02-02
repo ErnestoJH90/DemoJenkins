@@ -12,10 +12,12 @@ pipeline {
             sh 'ip addr show'
          }
       }
-      stage('date') {
-         script{
-            Date date = new Date()
-            env.NAME = date.format("dd-mm-yyyy")
+      stage('prepare'){
+         steps{
+            script{
+               Date date = new Date()
+               env.NAME = date.format("yyyy-MM-dd")
+            }
          }
       }
    }
