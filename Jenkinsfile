@@ -1,9 +1,6 @@
 pipeline {
    agent any
-   tools{
-      maven 'maven-tool'
-   }
-
+   
    stages {
       stage('Verify Branch') {
          steps {
